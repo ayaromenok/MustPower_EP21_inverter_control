@@ -12,7 +12,7 @@ ser = serial.Serial(
 #    stopbits=serial.STOPBITS_ONE,
     timeout=0 # Read timeout in seconds
 )
-
+time.sleep(0.5) # Give the port some time to initialize
 try:
     if ser.isOpen():
         print(f"Serial port {ser.port} opened successfully.")
@@ -24,10 +24,10 @@ try:
         ser.write(serial.to_bytes(byte_list1))
         print(f"Sent byte list: {byte_list1}")
 
-        time.sleep(0.5)
+        time.sleep(0.1) #0.1 is good value
 
 # Read binary data
-        data1 = ser.read(128) # Read up to 59 bytes
+        data1 = ser.read(59) # Read up to 59 bytes
 
         if data1:
             data1_size = sys.getsizeof(data1)
