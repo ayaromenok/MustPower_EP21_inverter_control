@@ -15,3 +15,8 @@ Inverter use serial converter CH340, so appear in `lsusb` output as follow:
 
 ```Bus 001 Device 006: ID 1a86:7523 QinHeng Electronics CH340 serial converter```
 
+### RaspberryPi issues
+
+- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+ 
+`sudo systemctl mask serial-getty@ttyUSB0.service` and/or `sudo nano /boot/firmware/cmdline.txt`. remove `console=serial0,115200`
