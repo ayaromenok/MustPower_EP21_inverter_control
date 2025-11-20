@@ -79,7 +79,8 @@ def read_serial_data_EP20(ups_data, tty_port):
             print("Could not open serial port.")
 
     except:
-        print("read_serial_data_EP20:something went wrong")
+        print("Serial I/O:something went wrong")
+        sys.exit(1)
     finally:
         #print("finally: end of read/write")
         return ups_data
